@@ -299,7 +299,7 @@ function RoomContent() {
     return (
         <div className="flex flex-col min-h-screen bg-im-blue overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 bg-black/20 backdrop-blur-md sticky top-0 z-50">
+            <div className="flex items-center justify-between p-2 md:p-4 bg-black/20 backdrop-blur-md sticky top-0 z-50">
                 <Link href="/challenge" className="p-2 hover:bg-white/10 rounded-full transition-colors">
                     <ChevronLeft className="w-6 h-6 text-white" />
                 </Link>
@@ -314,11 +314,11 @@ function RoomContent() {
                 <div className="w-10" />
             </div>
 
-            <div className="flex-1 flex flex-col p-6 pt-2">
+            <div className="flex-1 flex flex-col p-4 md:p-6 pt-2 overflow-y-auto">
                 {/* Score Bars */}
-                <div className="flex flex-col gap-4 mb-8">
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-im-cyan ring-4 ring-im-cyan/20 shrink-0 shadow-lg">
+                <div className="flex flex-col gap-2 md:gap-4 mb-4 md:mb-8">
+                    <div className="flex items-center gap-2 md:gap-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-im-cyan ring-4 ring-im-cyan/20 shrink-0 shadow-lg">
                             <img
                                 src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${stats.name}&backgroundColor=b6e3f4`}
                                 alt="You"
@@ -330,7 +330,7 @@ function RoomContent() {
                                 <span className="text-[10px] font-black text-im-cyan uppercase tracking-widest">{stats.name}</span>
                                 <span className="text-sm font-black text-white tabular-nums">{myScore}</span>
                             </div>
-                            <div className="h-3 bg-black/40 rounded-full overflow-hidden p-[2px]">
+                            <div className="h-2 md:h-3 bg-black/40 rounded-full overflow-hidden p-[2px]">
                                 <div
                                     className="h-full bg-im-cyan transition-all duration-500 ease-out rounded-full"
                                     style={{ width: `${Math.min(100, (myScore / (config.questions * config.time * 10)) * 100)}%` }}
@@ -339,8 +339,8 @@ function RoomContent() {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-red-400 ring-4 ring-red-400/20 shrink-0 shadow-lg bg-zinc-800">
+                    <div className="flex items-center gap-2 md:gap-4">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-red-400 ring-4 ring-red-400/20 shrink-0 shadow-lg bg-zinc-800">
                             <img
                                 src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${config.name}`}
                                 alt="Pro"
@@ -352,7 +352,7 @@ function RoomContent() {
                                 <span className="text-[10px] font-black text-red-400 uppercase tracking-widest">{config.name}</span>
                                 <span className="text-sm font-black text-white tabular-nums">{proScore}</span>
                             </div>
-                            <div className="h-3 bg-black/40 rounded-full overflow-hidden p-[2px]">
+                            <div className="h-2 md:h-3 bg-black/40 rounded-full overflow-hidden p-[2px]">
                                 <div
                                     className="h-full bg-red-400 transition-all duration-500 ease-out rounded-full"
                                     style={{ width: `${Math.min(100, (proScore / (config.questions * config.time * 10)) * 100)}%` }}
@@ -363,19 +363,19 @@ function RoomContent() {
                 </div>
 
                 {/* Question Area */}
-                <div className="flex-1 flex flex-col">
-                    <div className="bg-zinc-900/90 rounded-[3rem] p-10 mb-8 border border-white/5 min-h-[180px] flex items-center justify-center relative overflow-hidden shadow-2xl">
-                        <p className="text-white text-2xl font-bold text-center relative z-10 leading-relaxed italic shadow-text">
+                <div className="flex-1 flex flex-col justify-center">
+                    <div className="bg-zinc-900/90 rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 mb-4 md:mb-8 border border-white/5 min-h-[140px] md:min-h-[180px] flex items-center justify-center relative overflow-hidden shadow-2xl">
+                        <p className="text-white text-lg md:text-2xl font-bold text-center relative z-10 leading-relaxed italic shadow-text">
                             {currentQuestion?.question}
                         </p>
                         <div className="absolute top-0 left-0 w-2 h-full bg-im-cyan shadow-[0_0_15px_rgba(7,201,204,0.5)]" />
                         <div className="absolute top-0 right-0 p-4 opacity-10">
-                            <span className="text-8xl font-black italic text-white/5">{questionCount}</span>
+                            <span className="text-6xl md:text-8xl font-black italic text-white/5">{questionCount}</span>
                         </div>
                     </div>
 
                     {/* Options Grid */}
-                    <div className="grid grid-cols-1 gap-4 mb-8">
+                    <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 md:mb-8 text-sm md:text-base">
                         {['A', 'B', 'C', 'D'].map((key) => {
                             const optionText = currentQuestion?.options[key as keyof Question['options']];
                             const isCorrect = currentQuestion?.answer === key;
@@ -405,7 +405,7 @@ function RoomContent() {
                                     key={key}
                                     onClick={() => handleUserAnswer(key)}
                                     disabled={!!userAnswer || roundProcessed}
-                                    className={`relative flex items-center p-6 rounded-[1.5rem] border-2 transition-all duration-300 transform 
+                                    className={`relative flex items-center p-4 md:p-6 rounded-xl md:rounded-[1.5rem] border-2 transition-all duration-300 transform 
                                         ${variant === 'default' ? 'bg-white/10 border-white/10 hover:bg-white/20 active:scale-[0.98]' :
                                             variant === 'selected' ? 'bg-im-cyan/20 border-im-cyan scale-[1.02]' :
                                                 variant === 'correct' ? 'bg-green-500 border-green-400 scale-[1.02] shadow-[0_10px_20px_rgba(34,197,94,0.3)]' :
@@ -413,11 +413,11 @@ function RoomContent() {
                                                         variant === 'correct-h' ? 'bg-green-500/20 border-green-500' : ''
                                         }`}
                                 >
-                                    <span className={`w-10 h-10 rounded-xl flex items-center justify-center font-black mr-6 text-lg ${variant === 'correct' || variant === 'wrong' ? 'bg-black/20 text-white' : 'bg-white/10 text-white/60'
+                                    <span className={`w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center font-black mr-4 md:mr-6 text-base md:text-lg ${variant === 'correct' || variant === 'wrong' ? 'bg-black/20 text-white' : 'bg-white/10 text-white/60'
                                         }`}>
                                         {key}
                                     </span>
-                                    <span className={`flex-1 text-left font-bold text-lg ${variant === 'correct' || variant === 'wrong' ? 'text-white' : 'text-white/90'}`}>
+                                    <span className={`flex-1 text-left font-bold text-base md:text-lg ${variant === 'correct' || variant === 'wrong' ? 'text-white' : 'text-white/90'}`}>
                                         {optionText}
                                     </span>
 
