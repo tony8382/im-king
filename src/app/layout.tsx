@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IM King - 益智王",
   description: "彰師大資管系開發的益智問答遊戲",
-  manifest: `${process.env.NEXT_PUBLIC_BASE_PATH}/manifest.json`,
+  manifest: `./manifest.json`,
   icons: {
-    icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/icon.png`,
-    apple: `${process.env.NEXT_PUBLIC_BASE_PATH}/icon.png`,
+    icon: `./icon.png`,
+    apple: `./icon.png`,
   },
   appleWebApp: {
     capable: true,
