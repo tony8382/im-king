@@ -16,11 +16,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IM King - 益智王",
   description: "彰師大資管系開發的益智問答遊戲",
-  manifest: "/manifest.json",
+  manifest: "/im-king/manifest.json",
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
-  }
+    icon: "/im-king/icon.png",
+    apple: "/im-king/icon.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "IM King",
+  },
+};
+export const viewport = {
+  themeColor: "#07c9cc",
 };
 
 export default function RootLayout({

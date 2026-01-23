@@ -1,17 +1,21 @@
 {
-    "name": "IM King - 益智王",
+    "name": "IM King",
     "short_name": "IM King",
     "description": "彰師大資管系開發的益智問答遊戲",
-    "start_url": "/",
+    "start_url": "/im-king/",
     "display": "standalone",
-    "background_color": "#000000",
+    "background_color": "#0f172a",
     "theme_color": "#07c9cc",
     "icons": [
         {
-            "src": "/icon.png",
-            "sizes": "144x144",
-            "type": "image/png",
-            "purpose": "any maskable"
+            "src": "/im-king/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/im-king/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
     ]
 }
