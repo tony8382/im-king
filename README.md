@@ -63,7 +63,7 @@ src/
 │   ├── home/            # 主選單
 │   ├── library/         # 題庫頁
 │   ├── profile/         # 個人資料頁
-│   └── room/[id]/       # 遊戲對戰室
+│   └── quiz/       # 遊戲對戰室
 ├── components/          # 共用組件 (Header, StatsProvider)
 ├── data/                # 靜態資料 (questions.json)
 ├── lib/                 # 工具函式庫 (constants, i18n, audio)

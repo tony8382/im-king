@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, Suspense } from 'react';
 import { useStats } from "@/components/stats-provider";
 import { GAME_CONFIG, COLORS } from "@/lib/constants";
 import questionsData from "@/data/questions.json";
 import { ChevronLeft, Timer, Target, User, Crown, X, Trophy, TrendingUp, TrendingDown, Lock } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { playSound } from "@/lib/audio";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -22,9 +22,12 @@ interface Question {
     };
 }
 
-export default function Room({ params }: { params: { id: string } }) {
+function RoomContent() {
     const router = useRouter();
-    const levelId = parseInt(params.id);
+    const searchParams = useSearchParams();
+    const idParam = searchParams.get('id');
+    const levelId = idParam ? parseInt(idParam) : 1;
+
     const config = GAME_CONFIG.levels.find(l => l.level === levelId) || GAME_CONFIG.levels[0];
     const { stats, addCredit, reduceCredit, addWin, addLose, t, markQuestionAsSeen } = useStats();
 
@@ -434,5 +437,13 @@ export default function Room({ params }: { params: { id: string } }) {
             {/* Decorative Bottom */}
             <div className="h-2 bg-gradient-to-r from-transparent via-im-cyan/30 to-transparent blur-sm" />
         </div>
+    );
+}
+
+export default function RoomPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-im-blue flex items-center justify-center text-white font-bold">Loading...</div>}>
+            <RoomContent />
+        </Suspense>
     );
 }

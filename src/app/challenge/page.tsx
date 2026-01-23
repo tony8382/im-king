@@ -32,7 +32,7 @@ export default function Challenge() {
                     return (
                         <Link
                             key={level.level}
-                            href={isLocked ? '#' : `/room/${level.level}`}
+                            href={isLocked ? '#' : `/quiz?id=${level.level}`}
                             className={`group relative flex flex-col overflow-hidden rounded-[2.5rem] card-3d shadow-2xl transition-all ${isLocked ? 'opacity-70 grayscale cursor-not-allowed' : ''
                                 }`}
                             style={{ backgroundColor: (level as any).color }}
