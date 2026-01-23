@@ -363,7 +363,7 @@ function RoomContent() {
                 </div>
 
                 {/* Question Area */}
-                <div className="flex-1 flex flex-col justify-center">
+                <div className="flex-1 flex flex-col">
                     <div className="bg-zinc-900/90 rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 mb-4 md:mb-8 border border-white/5 min-h-[140px] md:min-h-[180px] flex items-center justify-center relative overflow-hidden shadow-2xl">
                         <p className="text-white text-lg md:text-2xl font-bold text-center relative z-10 leading-relaxed italic shadow-text">
                             {currentQuestion?.question}
