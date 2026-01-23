@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  --profile-bg: #f27777;
+  --challenge-bg: #eec147;
+  --library-bg: #2e3559;
+
+  --p-text: #0190de;
+  --p-bg: #e2e8f0;
+  --p-bg2: #3b82f6;
+
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --profile-bg: #dc2626;
+  --challenge-bg: #b45309;
+  --library-bg: #1e1b4b;
+
+  --p-text: #07c9cc;
+  --p-bg: #1e1b4b;
+  --p-bg2: #0190de;
+
+  --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-profile: var(--profile-bg);
+  --color-challenge: var(--challenge-bg);
+  --color-library: var(--library-bg);
+
+  --color-im-cyan: #07c9cc;
+  --color-im-blue: #0190de;
+  --color-im-navy: #1e1b4b;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root-container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  background: var(--background);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  body {
+    background: #111827;
+    /* Dark outer background for large screens */
+  }
+
+  .dark body {
+    background: #000000;
+  }
+}
+
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.shadow-text {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.card-3d {
+  box-shadow: var(--card-shadow);
+  transform: translateZ(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.4);
+}
