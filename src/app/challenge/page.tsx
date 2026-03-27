@@ -25,7 +25,8 @@ export default function Challenge() {
 
             <Header />
 
-            <div className="flex-1 flex flex-col p-6 gap-6 pb-12 overflow-y-auto">
+            <div className="flex-1 w-full max-w-7xl mx-auto p-6 pb-12 overflow-y-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {GAME_CONFIG.levels.map((level, index) => {
                     const isLocked = stats.credits < level.unlockScore;
 
@@ -83,6 +84,7 @@ export default function Challenge() {
                         </Link>
                     );
                 })}
+                </div>
             </div>
         </div>
     );

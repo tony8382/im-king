@@ -28,7 +28,7 @@ export default function Profile() {
                 <div className="w-10" />
             </div>
 
-            <div className="flex-1 flex flex-col pt-8">
+            <div className="flex-1 flex flex-col pt-8 w-full max-w-4xl mx-auto">
                 {/* Avatar & Name Section */}
                 <div className="flex flex-col items-center px-6 pb-12">
                     <div className="relative">

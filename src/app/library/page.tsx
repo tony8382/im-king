@@ -70,7 +70,7 @@ export default function Library() {
 
             <Header />
 
-            <div className="flex flex-col p-6 gap-8 pb-20 overflow-y-auto">
+            <div className="flex flex-col p-6 gap-8 pb-20 overflow-y-auto w-full max-w-7xl mx-auto">
                 {/* Reward Section (Original Feature) */}
                 <div className="bg-foreground/5 rounded-[2.5rem] p-8 border border-foreground/5 shadow-2xl relative overflow-hidden">
                     <div className="flex flex-col items-center">
@@ -148,7 +148,7 @@ export default function Library() {
                         )}
                     </div>
 
-                    <div className="flex flex-col gap-4 mt-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                         <AnimatePresence mode="popLayout">
                             {filteredQuestions.slice(0, 20).map((q, idx) => (
                                 <motion.div

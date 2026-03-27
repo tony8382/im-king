@@ -363,7 +363,7 @@ function RoomContent() {
                 </div>
 
                 {/* Question Area */}
-                <div className="flex-1 flex flex-col">
+                <div className="flex-1 flex flex-col w-full max-w-5xl mx-auto">
                     <div className="bg-zinc-900/90 rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 mb-4 md:mb-8 border border-white/5 min-h-[140px] md:min-h-[180px] flex items-center justify-center relative overflow-hidden shadow-2xl">
                         <p className="text-white text-lg md:text-2xl font-bold text-center relative z-10 leading-relaxed italic shadow-text">
                             {currentQuestion?.question}
@@ -375,7 +375,7 @@ function RoomContent() {
                     </div>
 
                     {/* Options Grid */}
-                    <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 md:mb-8 text-sm md:text-base">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-8 text-sm md:text-base">
                         {['A', 'B', 'C', 'D'].map((key) => {
                             const optionText = currentQuestion?.options[key as keyof Question['options']];
                             const isCorrect = currentQuestion?.answer === key;

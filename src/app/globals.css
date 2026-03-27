@@ -61,7 +61,6 @@ body {
 
 #root-container {
   width: 100%;
-  max-width: 500px;
   min-height: 100vh;
   background: var(--background);
   position: relative;
